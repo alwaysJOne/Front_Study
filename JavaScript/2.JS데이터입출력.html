@@ -71,6 +71,33 @@
         const area = document.getElementById('area1');
         area.innerText = "오늘 점심은" + isValue + "먹기로함";
         console.log(area);
+
+        console.log(area.id)
+        console.log(area.innerText)
+    }
+</script>
+
+<h3> 4) 선택한input요소.vlaue</h3>
+아이디 :   <input type="text" id="id-input"><br>
+비밀번호 : <input type="password" id="pwd-input"><br>
+<button onclick="inputValueTest()">클릭</button><br>
+<input id="result-input" type="text">
+
+<script>
+    function inputValueTest(){
+        //아이디 비밀번호를 가지고와서 아래쪽에 결과창에 띄워주기
+        let idInput = document.getElementById('id-input');
+        console.log(idInput)
+        console.log(idInput.value);
+        let pwdInput = document.getElementById('pwd-input');
+        console.log(pwdInput)
+        console.log(pwdInput.value);
+
+        let result = document.getElementById('result-input');
+        result.value = idInput.value + ", " + pwdInput.value;
+
+        idInput.value = '';
+        pwdInput.value = '';
     }
 </script>
 

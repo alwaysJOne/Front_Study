@@ -117,7 +117,7 @@ console.log(typeof nInfinity);
 
 // String 타입
 
-const name = "최지원 60살";
+const name = '최지원 60살';
 console.log(name)
 console.log(typeof name)
 
@@ -132,6 +132,7 @@ const str = "안녕하세요 저는 최지원입니다. \n \t나이는 60살입�
 console.log(str);
 
 const name = "최지원";
+console.log("안녕하세요 " + name + "입니다");
 console.log(`안녕하세요 ${name}입니다`);
 
 
@@ -145,7 +146,7 @@ console.log(typeof isFalse);
 /**
  * undefined
  * 
- * 사용자가 직접 값을 초기화하지 않았을 때
+ * 개발자가 직접 값을 초기화하지 않았을 때
  * 지정되는 값이다.
  * 
  * undefined를 직접 넣어주는 것은 지양해야한다.
@@ -210,7 +211,12 @@ console.log(dictionary.yellow);
  * 
  * 값을 리스트로 나열할 수 있는타입
  */
-const arr = ["빨간색", "주황생","노란색","초록색"];
+const arr = [];
+arr.push("빨간색");
+arr.push("주황생");
+arr.push("노란색");
+arr.pop();
+// const arr = ["빨간색", "주황생","노란색","초록색"];
 console.log(arr[0]);
 
 arr.push('이상한색');

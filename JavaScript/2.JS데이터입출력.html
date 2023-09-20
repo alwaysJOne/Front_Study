@@ -11,8 +11,9 @@
 
 <script>
     function documentWrite(){
-        // document.write("끝났습니다~");
-        document.write("<b>끝났습니다</b><br><h2>즐거웠어요.</h2>");
+
+    
+        document.write("끝났습니다~");
     }
 </script>
 
@@ -28,8 +29,14 @@
         console.log(area.id); // id : 해당 요소의 아이디속성
         console.log(area.className); // className : 해당 요소의  클래스속성
 
-        area.innerText = "확인되었습니다."
+        // area.innerText = "확인되었습니다."
         area.innerHTML = "<span style = 'background: gray;'>확인되었습니다.</span>";
+
+        // const spanTmp = document.createElement('span');
+        // spanTmp.style.background = 'gray';
+        // spanTmp.innerText = '확인되었습니다.';
+        // console.log(spanTmp)
+        // area.appendChild(spanTmp);
     }
 </script>
 <br>
@@ -51,7 +58,10 @@
 
 <script>
     function testConfirm(){
-        let isCheck = confirm("오늘 점심 드실겁니까?");
+        let isCheck = confirm("저장하시겠습니까?");
+        if (isCheck) {
+           //저장코드
+        } 
         console.log(isCheck);
     }
 </script>
@@ -95,7 +105,6 @@
 
         let result = document.getElementById('result-input');
         result.value = idInput.value + ", " + pwdInput.value;
-
         idInput.value = '';
         pwdInput.value = '';
     }

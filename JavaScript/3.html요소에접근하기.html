@@ -13,7 +13,6 @@
         }
     </style>
 </head>
-
 <body>
     <h1>HTML요소에 접근하기(해당 요소 객체 가져오기)</h1>
 
@@ -160,7 +159,7 @@
         <li></li>
         <li></li>
     </ul>
-    <pre class="test test1"></pre>
+    <pre class="test test1 test3"></pre>
     <button onclick="accessClass()">class로 접근</button>
 
     <script>
@@ -228,6 +227,7 @@
             checkboxes.forEach((checkbox) => {
                 console.log(checkbox)
                 checkbox.checked = selectAll.checked;
+                checkbox.style.pointerEvents = 'none';
             })
         }
     </script>

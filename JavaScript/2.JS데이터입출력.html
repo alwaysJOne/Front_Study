@@ -11,14 +11,15 @@
 
 <script>
     function documentWrite(){
-
-    
+        document.write("끝났습니다~");
+        document.write("끝났습니다~<br><br>");
+        document.write("끝났습니다~");
         document.write("끝났습니다~");
     }
 </script>
 
 <h3>4) 선택한요소.innerHTML | innerText = "요소에 출력할 문구";</h3>
-<div id = "area1" style="width: 500px; height: 300px; border: 1px solid black;"></div>
+<div id = "area1" style="width: 500px; height: 300px; border: 1px solid black;">변경되기 전<br></div>
 <button onclick="printValue()">확인</button>
 
 <script>
@@ -29,8 +30,12 @@
         console.log(area.id); // id : 해당 요소의 아이디속성
         console.log(area.className); // className : 해당 요소의  클래스속성
 
+        console.log(area.innerHTML)
         // area.innerText = "확인되었습니다."
         area.innerHTML = "<span style = 'background: gray;'>확인되었습니다.</span>";
+
+        console.log(area.innerText)
+        area.innerText = "<br>변경두번째"
 
         // const spanTmp = document.createElement('span');
         // spanTmp.style.background = 'gray';
@@ -84,6 +89,9 @@
 
         console.log(area.id)
         console.log(area.innerText)
+
+        area.style.background = 'red';
+        console.log(area.style.background);
     }
 </script>
 

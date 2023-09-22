@@ -58,6 +58,7 @@
                 },
                 etc: [1, 2, 3],
             }
+
             //자바스크립트에서 객체 => 자바에서의 컬렉션(Map)
             console.log(arr)
             console.log(product)
@@ -206,8 +207,11 @@
 
             area5.innerHTML += "name속성이 있을까? :" + ("name" in student) + "<br>";
             area5.innerHTML += "age속성이 있을까? :" + ("age" in student) + "<br>";
+            let name = "최지원";
 
-            with (student) {
+            with (student) { 
+                // 객체명을 반복해서 사용하지 않고 객체 내부의 값을 가져오기 위해 사용
+                // with로 지정한 영역에서는 변수를 검사할 때 객체내에 존재하는지를 먼저 검사
                 area5.innerHTML += "학생이름 : " + name + "<br>";
                 area5.innerHTML += "국어점수 : " + kor + "<br>";
                 area5.innerHTML += "수학점수 : " + math + "<br>";
@@ -224,13 +228,14 @@
     <div class="area small" id="area6"></div>
     <script>
         function test6() {
-            const student = {} // 빈객체 생성
+            const student = {
+            } // 빈객체 생성
 
             //객체에 속성 추가
             student.name = "홍길동"; // student['name'] = "홍길동";
             student.hobby = ['롤', '축구'];
             student.dream = '프로게이머';
-            student.age = 20;
+            student.age = 20; //student['age'] = 20;
 
             console.log(student);
 
@@ -249,7 +254,7 @@
             const area = document.getElementById('area6');
             area.innerHTML += student + "<hr>";
 
-
+            student.hobby = null;
             delete(student.hobby);
             console.log(student)
 

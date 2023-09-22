@@ -55,6 +55,7 @@
         btn.onclick = function(){ // 이벤트속성에 대입되는 function == 이벤트 핸들러
             document.getElementById('area2').innerHTML += '이벤트핸들러를 통해 실행됨<br>';
         }
+;
 
         
     </script>
@@ -75,6 +76,7 @@
 
     <script>
         function test2(value){
+
             document.getElementById('area3').innerHTML += value;
         }
     </script>
@@ -155,21 +157,7 @@
                 console.log(inputEl.value);
             }
             return tmp;
-        
         }
-
-
-        const tmp = function(num, callback){
-            if (num >= 10){
-                callback("10이상");
-            } else {
-                callback("10미만")
-            }
-        }
-
-        tmp(20, function(str){
-            console.log(str)
-        })
     </script>
 
 </body>

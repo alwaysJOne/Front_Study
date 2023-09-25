@@ -55,9 +55,8 @@
         btn.onclick = function(){ // 이벤트속성에 대입되는 function == 이벤트 핸들러
             document.getElementById('area2').innerHTML += '이벤트핸들러를 통해 실행됨<br>';
         }
-;
 
-        
+        btn.click();
     </script>
 
     <h3>함수의 매개변수</h3>
@@ -109,14 +108,15 @@
 
     <!-- this : 현재 (이벤트가 발생한)요소객체-->
     <button onclick="test4(this);">버튼1</button>
-    <button onclick="test4(this.innerText);"><span>버튼2</span></button>
-    <input type="button" value="버튼3" onclick="test4(this.type);">
-    <button id = 'btn4' onclick="test4(this.id)">버튼4</button>
+    <button onclick="test4(this);"><span>버튼2</span></button>
+    <input type="button" value="버튼3" onclick="test4(this);">
+    <button id = 'btn4' onclick="test4(this)">버튼4</button>
     <button onclick="test4(this)">버튼5</button>
     <script>
-        function test4(button){ // 이벤트가 발생한 요소에 동적인 효과
-           button.innerText = '클릭됨';
-           button.style.background = 'red';
+        function test4(target){ // 이벤트가 발생한 요소에 동적인 효과
+            console.log(target)
+            target.innerText = '클릭됨';
+            target.style.background = 'red';
         }
     </script>
 

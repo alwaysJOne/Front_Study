@@ -44,14 +44,11 @@ function addTodo(){
         } else {
             ev.target.classList.remove('done');
         }
-        
-    
-    
     }
 
     removeToDoli.onclick = function(ev){
         removeEvent(ev);
-        
+        this.parentNode.remove();
     }
 }
 

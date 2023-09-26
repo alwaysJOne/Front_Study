@@ -75,4 +75,26 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.todo-list > li:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.todo-list > li.done{
+    text-decoration: line-through;
+}
+
+.todo-list > li > .todo-remove-btn{
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    background: #a0c6ff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0px;
 }

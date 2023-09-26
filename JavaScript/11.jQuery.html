@@ -99,11 +99,11 @@
     <h5>JavaScript</h5>
     <h5>jQuery</h5>
 
-    <button class="btn1">1</button>
+    <!-- <button class="btn1">1</button>
     <button class="btn1">2</button>
     <button class="btn1">3</button>
     <button class="btn1">4</button>
-    <button class="btn1">5</button>
+    <button class="btn1">5</button> -->
 
     <ul id="ul-area1">
         <li>1</li>
@@ -143,8 +143,149 @@
             const ul = document.getElementById('ul-area1');
             console.log(ul.childNodes);
         })
+
+        document.getElementById('아이디명');
+        document.getElementsByClassName('클레스명')
+        document.getElementsByTagName('태그명')
+        document.querySelector('선택자');
+
+        /**
+            요소 선택 방법
+                        순수자바스크립트방식                |       jQuery방식
+        =========================================================================================================
+               document.getElementById('아이디명');        |        $('#아이디')
+            document.getElementsByClassName('클레스명')    |        $('.클래스명')
+            document.getElementsByTagName('태그명')        |        $('태그')
+                document.querySelector('선택자');          |        $('선택자')                  + $(변수)
+
+        
+        * 선택된 요소에 속성값 변경하고자 할 때
+                        순수자바스크립트방식                |       jQuery방식
+        -----------------------------------------------------------------------------------------------------------
+                |선택된 요소객체에 직접 접근해서 변경        | 선택된 요소에 메소드 이용
+        =============================================================================================================
+        스타일  |  .style.스타일속성 = '변경할 값'          |  .css('스타일속성', '변경할 값')
+        내용    |       .innerHTML = '변경할 값'           |         .html('변경할 값');   .test('변경할 값');
+        이벤트  |    .on이벤트명 = function(){}            |       .이벤트명(function(){});
+
+
+         * /
     </script>
 
+
+    <hr>
+
+    <h3>*jquery에서 input</h3>
+    텍스트상자 : <input type="text"> <br>
+    일반버튼 : <input type="button"><br>
+    체크박스 : <input type="checkbox" > <br>
+    첨부파일 : <input type="file"> <br>
+    비밀번호 : <input type="password"> <br>
+    라디오버튼 : <input type="radio"> <br>
+    초기화버튼 : <input type="reset"> <br>
+    제출버튼 : <input type="submit"> <br>
+
+    <script>
+        $(function(){
+            $(':text').css('background', 'red');
+            $(':button').css({width: '100px', height: '100px'}).val('킹버튼');
+            
+            //속성을 변경
+            $(':checkbox').attr('checked', true);
+
+            //첨부파일 배경색을 녹색으로
+            $(':file').css('background', 'green');
+
+            //비밀번호 배경색을 노란색으로
+            $(':password').css('background', 'yellow');
+
+            //라디오버튼 check상태로, 가로길이 50px, 세로길이 50px 
+            $(':radio').attr('checked', true).css({
+                width: '50px',
+                height: '50px'
+            })
+
+            //제출버튼 클릭시 alert('ㅋㅋㅋ') 실행되도록
+            $(':submit').click(function(){
+               console.log($(':text').eq(0).val())
+            })
+
+            //mouseenter : 선택된 요소의 경계 내부로 마우스가 들어가는 순간 발동
+            // $(':submit').mouseenter(function(){
+            //     $(this).val('선택');
+            // })
+
+            //mousout : 선택된 요소의 경계 외부로 마우스가 나갈때 발생하는 이벤트
+            // $(':submit').mouseout(function(){
+            //     $(this).val('제출');
+            // })
+
+            //hover는 원래 이벤트가 존재하지 않지만
+            //jquery에서 만들어준 메소드
+            // hover(요소에 들어올때 발생할 함수, 요소에서 빠져나갈 때 발생할 함수)
+            $(':submit').hover(function(){
+                $(this).val('선택');
+            }, function(){
+                $(this).val('제출');
+            })
+
+        })
+    </script>
+
+
+
+    <select name="name" id="user-select">
+        <option value="1">최지원</option>
+        <option value="2">김기만</option>
+        <option value="3">윤승희</option>
+        <option value="4">윤수진</option>
+        <option value="5">정혜원</option>
+    </select>
+
+    <h4>test1</h4>
+    <h4>test2</h4>
+    <h4>test3</h4>
+    <h4>test4</h4>
+    <h4>test5</h4>
+
+    <script>
+        $(function(){
+
+            // let userSelect = document.getElementById('user-select');
+            // userSelect.onchange = function(){
+
+            // }
+
+            //해당 요소의 value값이 변경되었을 때
+            // let userId = 1;
+            // $('#user-select').change(function(){
+            //     userId = $('#user-select').val();
+            // })
+
+            // userId = $('#user-select').val();
+
+
+            const arr = ['최','지','원'];
+
+            //1) for in이용해서 출력
+            for (let index in arr) {
+                let value = arr[index];
+
+                
+                console.log(i)
+            }
+
+            for (let unit of arr) {
+                console.log(unit)
+            }
+
+            //2) each메소드
+            $.each(arr, function(index, value){
+                console.log('index : ' + index + ' value: '  + value);
+            })
+           
+        })
+    </script>
 </body>
 
 </html>

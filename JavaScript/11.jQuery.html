@@ -271,17 +271,46 @@
             for (let index in arr) {
                 let value = arr[index];
 
-                
+
                 console.log(i)
             }
 
-            for (let unit of arr) {
-                console.log(unit)
-            }
+            // for (let unit of arr) {
+            //     console.log(unit)
+            // }
 
             //2) each메소드
-            $.each(arr, function(index, value){
-                console.log('index : ' + index + ' value: '  + value);
+            // $.each(arr, function(index, value){
+            //     console.log('index : ' + index + ' value: '  + value);
+            // })
+
+            // $(arr).each(function(index, value){
+            //     console.log('index : ' + index + ' value: '  + value);
+            // })
+
+            // arr.array.forEach(function(){
+
+            // });
+
+            let tmp = {
+                name : 'jiwon',
+                age : 30
+            }
+
+            function each(callback){
+                for (let index in tmp) {
+                    let value = arr[index];
+                    callback(index, )
+                }
+            }
+
+            $(tmp).each(function(index, value){
+                //실행하고싶은 로직
+                console.log('index : ' + index + ' value: '  + value.name);
+            })
+
+            tmp.forEach(function(index, value){
+                console.log('index : ' + index + ' value: '  + value.name);
             })
            
         })

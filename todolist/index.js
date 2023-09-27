@@ -1,7 +1,8 @@
-//할일목록 추가중 엔터를 클릭했을 때 할일 추가
+//할일이 담겨있는 목록
+const todoList = [];
 
-//할일 추가
-
+//할일 추가 + ui에 바로 그리기
+/*
 function addTodo(){
     const searchInput = document.getElementById('search-input');
 
@@ -38,6 +39,29 @@ function addTodo(){
         removeEvent(ev);
         this.parentNode.remove();
     }
+}
+*/
+
+//데이터만 할일에 추가
+function addTodo(){
+    //서치input에서 추가할 할일을 가지고온다
+    const todo = document.getElementById('search-input').value;
+
+    //할일이 입력되지 않았다면 함수를 끝낸다.
+    if (todo.replace(/ /g,"") === '')
+        return;
+
+    todoList.push({
+        title : todo, 
+        date : new Date()
+    })
+
+    console.log(todoList)
+}
+
+//할일목록 배열을 통해서 전체적인 할일목록 ui를 생성
+function drawTodoList(){
+    
 }
 
 function removeEvent(ev){

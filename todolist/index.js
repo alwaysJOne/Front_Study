@@ -1,16 +1,4 @@
-//할일목록 추가버튼을 눌렀을 때 할일 추가
-function addTodoListClick(){
-    //추가버튼 클릭시 ul목록 찾아서
-    //추가하고자하는 할일목록을 li태그로 만들어서 넣어준다
-    addTodo();
-}
-
 //할일목록 추가중 엔터를 클릭했을 때 할일 추가
-function addTodoListKeyUp(ev){
-    if(ev.keyCode === 13) {
-        addTodo();
-    }
-}
 
 //할일 추가
 

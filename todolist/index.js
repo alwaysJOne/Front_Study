@@ -1,10 +1,10 @@
 //할일이 담겨있는 목록
-const todoList = localStorage.getItem('todoList') ? localStorage.getItem('todoList') : [];
-
-if (num) {
-    
+const todoList = localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : [];
+console.log(todoList)
+window.onload = function(){
+    //모든 dom이 세팅되면 drawTodoList함수를 호출하여 localstorage로부터 받아온 todoList목록 그려주기
+    drawTodoList(document.getElementsByClassName('todo-list')[0], todoList);
 }
-
 //할일 추가 + ui에 바로 그리기
 /*
 function addTodo(){
@@ -66,8 +66,7 @@ function addTodo(){
     // console.log(JSON.parse(JSON.stringify(todoList)))
 
     //최종적인 할일목록의 완성
-    drawTodoList(document.getElementsByClassName('todo-list')[0], todoList)
-
+    drawTodoList(document.getElementsByClassName('todo-list')[0], todoList);
 }
 
 //할일목록 배열을 통해서 전체적인 할일목록 ui를 생성
@@ -101,9 +100,27 @@ function drawTodoList(parent, list){
             }
         }
 
+       
         removeToDoli.onclick = function(ev){
+            console.log(new Date(unit.date).getTime());
             removeEvent(ev);
+
+            //ui에서 삭제(dom에서 제거)
             this.parentNode.remove();
+
+            //데이터에서 삭제
+            //filter메소드 => 배열에서 조건에 맞는 값만 추릴때 사용
+            //특정 자료를 삭제할때 많이 사용한다.
+            
+            let newTodoList = [];
+            for (let data of todoList) {
+                let tmpDate = new Date(data.date).getTime(); //1695793566140
+                let unitTime = new Date(unit.date).getTime();
+
+                if (tmpDate !== unitTime)
+                    newTodoList.push(data);
+            }
+
         }
     }
 

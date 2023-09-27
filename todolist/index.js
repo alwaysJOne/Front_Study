@@ -1,5 +1,9 @@
 //할일이 담겨있는 목록
-const todoList = [];
+const todoList = localStorage.getItem('todoList') ? localStorage.getItem('todoList') : [];
+
+if (num) {
+    
+}
 
 //할일 추가 + ui에 바로 그리기
 /*
@@ -56,12 +60,53 @@ function addTodo(){
         date : new Date()
     })
 
-    console.log(todoList)
+    document.getElementById('search-input').value = '';
+    localStorage.setItem('todoList', JSON.stringify(todoList))
+
+    // console.log(JSON.parse(JSON.stringify(todoList)))
+
+    //최종적인 할일목록의 완성
+    drawTodoList(document.getElementsByClassName('todo-list')[0], todoList)
+
 }
 
 //할일목록 배열을 통해서 전체적인 할일목록 ui를 생성
-function drawTodoList(){
+//할일목록 todoList와 그려줄 영역 parent를 넘겨받아
+//parent에 todoList를 그려준다.
+function drawTodoList(parent, list){
+    $(parent).empty();
     
+    for (let unit of list) {
+        // 할일목록을 표시해줄 li태그생성
+        const toDoLi = document.createElement('li');
+        toDoLi.isDone = false;
+        toDoLi.innerHTML = unit.title;
+        parent.appendChild(toDoLi);
+
+        //할일목록을 지워줄 버튼을 만들어서 li태그 자식노드로 추가
+        const removeToDoli = document.createElement('div');
+        removeToDoli.className = 'todo-remove-btn';
+        removeToDoli.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        toDoLi.appendChild(removeToDoli);
+
+        toDoLi.onclick = function(ev){     
+            //클릭될때마다 isDone값을 반대로 변경해줌
+            ev.target.isDone = !ev.target.isDone;
+
+            //isDone값에 따라서 done class를 부여해주거나 삭제해줌
+            if (ev.target.isDone) {
+                ev.target.className = 'done';
+            } else {
+                ev.target.classList.remove('done');
+            }
+        }
+
+        removeToDoli.onclick = function(ev){
+            removeEvent(ev);
+            this.parentNode.remove();
+        }
+    }
+
 }
 
 function removeEvent(ev){

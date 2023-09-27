@@ -1,5 +1,5 @@
 //할일이 담겨있는 목록
-const todoList = localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : [];
+let todoList = localStorage.getItem('todoList') ? JSON.parse(localStorage.getItem('todoList')) : [];
 console.log(todoList)
 window.onload = function(){
     //모든 dom이 세팅되면 drawTodoList함수를 호출하여 localstorage로부터 받아온 todoList목록 그려주기
@@ -62,6 +62,7 @@ function addTodo(){
 
     document.getElementById('search-input').value = '';
     localStorage.setItem('todoList', JSON.stringify(todoList))
+    console.log(todoList)
 
     // console.log(JSON.parse(JSON.stringify(todoList)))
 
@@ -109,18 +110,28 @@ function drawTodoList(parent, list){
             this.parentNode.remove();
 
             //데이터에서 삭제
+            
+            // let newTodoList = [];
+            // for (let data of todoList) {
+            //     let tmpDate = new Date(data.date).getTime();
+            //     let unitTime = new Date(unit.date).getTime();
+
+            //     if (tmpDate !== unitTime)
+            //         newTodoList.push(data);
+            // }
+
+            // todoList = newTodoList;
+
             //filter메소드 => 배열에서 조건에 맞는 값만 추릴때 사용
             //특정 자료를 삭제할때 많이 사용한다.
-            
-            let newTodoList = [];
-            for (let data of todoList) {
-                let tmpDate = new Date(data.date).getTime(); //1695793566140
+            todoList = todoList.filter(function(data){
+                let tmpDate = new Date(data.date).getTime();
                 let unitTime = new Date(unit.date).getTime();
-
-                if (tmpDate !== unitTime)
-                    newTodoList.push(data);
-            }
-
+         
+                return (tmpDate !== unitTime);
+            })
+            localStorage.setItem('todoList', JSON.stringify(todoList))
+            console.log(todoList)
         }
     }
 

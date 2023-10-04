@@ -37,6 +37,8 @@ console.log(+'0')
 console.log(!!'jiwon');
 console.log(!!'');
 console.log(![]);
+let m1 = {name : 'jiwon'}
+let m2 = {name : 'jiwon'}
 
 console.log({name : 'jiwon'} == {name : 'jiwon'})
 

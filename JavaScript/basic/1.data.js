@@ -1,8 +1,11 @@
 console.log('Hello World');
 console.log('Hello', 'World');
 
+console.dir('Hello World');
+
 //주석을 작성하는 첫번째 방법
 console.log("안녕") // 안녕을 출력
+console.dir("안녕")
 
 /**
  * 이렇게 작성하면
@@ -49,6 +52,10 @@ console.log(name2);
 
 const name3 = "최지원";
 console.log(name3);
+
+const arr2 = [];
+arr2.push(1)
+
 
 
 /**

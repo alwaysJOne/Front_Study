@@ -26,6 +26,7 @@
     <button onclick="test1()">네이버</button>
     <script>
         function test1() {
+            console.log(window)
             // window.open();
             /**
              * window.open(첫번째, 두번째, 세번째);
@@ -202,7 +203,7 @@
             console.log(h3El);
 
            //area.innerHTML = h3El;
-           area.append(h3El);
+           area.appendChild(h3El);
         }
     </script>
 
@@ -232,6 +233,7 @@
             //지우고자하는 요소객체.remove();
             let area = document.getElementById('area5')
             area.firstChild.remove();
+            //$(area).empty();
         }
     </script>
 </body>

@@ -28,6 +28,7 @@
 
     <script>
         const area1 = document.getElementById('area1');
+        console.log(area1)
 
         // const btn1 = document.getElementById('btn1');
         // btn1.onclick = function(){ // 이벤트 핸들러
@@ -101,8 +102,8 @@
             console.log(window.event); /// Event객체
 
             // 현재 이벤트가 발생한 요소객체에 접근하고자 한다면
-            console.log(ev.target)
             console.log(window.event.target);
+            console.log(ev.target)
             console.log(this);
 
             ev.target.innerHTML = '버튼클림됨';

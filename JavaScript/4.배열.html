@@ -26,7 +26,7 @@
     <div id="area1" class="area small"></div>
 
     <script>
-        const arr = ["홍길동", '강남', 50, true, [1,2,3]]; //배열객체에 자료형에 상관없이 어떠한 값도 저장가능
+        const arr = ["홍길동", '강남', 50, true, [1,2,3], {}]; //배열객체에 자료형에 상관없이 어떠한 값도 저장가능
 
         console.log(arr);
         console.log(arr[0]);
@@ -99,7 +99,7 @@
             // 없다면 -1반환
             //console.log(arr.indexOf(fruit));
 
-            let index = arr.indexOf(fruit);
+            let index = arr.indexOf(fruit); 
             if (index === -1) {
                 area2.innerHTML += "판매하지 않습니다."
             } else {
@@ -149,7 +149,7 @@
         function reverseTest(){
             const area4 = document.getElementById('area4');
 
-            const arr = [1,2,3,4,5];
+            const arr = [1,3,2,4,5]; // [5,4,2,3,1];
 
             area4.innerHTML += "arr : " + arr + "<br>";
             area4.innerHTML += "reverse결과 : " + arr.reverse() + "<br>";
@@ -247,7 +247,7 @@
             const arr = ['java', 'oracle', 'html', 'css','javascript'];
             tmpArea.innerHTML += 'arr : ' + arr + "<br>";
 
-            //const arr2 = arr.slice(1, 4);
+            const arr2 = arr.slice(1, 4);
 
             // slice(시작, 끝) : 원본배열에 영향을 끼치지 않음
             tmpArea.innerHTML += 'slice : ' + arr.slice(1, 4) + "<br>";

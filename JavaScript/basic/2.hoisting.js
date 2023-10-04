@@ -4,7 +4,7 @@
 
 
 
-console.log(name);
+console.log(name);// 에러발생
 var name = "jiwon";
 console.log(name);
 

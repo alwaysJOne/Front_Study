@@ -55,7 +55,16 @@
                     return (this.name + " " + this.age + " " +
                         this.gender + " " + this.point);
                 }
+                human.point = 0;
             }
+
+            humanArr = humanArr.map(function(human){
+                item.toString = function () {
+                    return (this.name + " " + this.age + " " +
+                        this.gender + " " + this.point);
+                }
+                return item;
+            })
 
             const area = document.getElementById('area1');
 
@@ -85,9 +94,10 @@
             this.age = age;
             this.gender = gender;
             this.point = point;
+            this.address = '미입력';
 
             this.toString = function () {
-                return (this.name + " " + this.age + " " + this.gender + " " + this.point);
+                return (this.name + " " + this.age + " " + this.gender + " " + this.point + " " + this.address);
             }
         }
 

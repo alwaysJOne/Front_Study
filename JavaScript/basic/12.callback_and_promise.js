@@ -55,3 +55,63 @@
 /**
  * Promise
  */
+
+// function tmp(){
+
+// }
+
+// //this가 안생김
+// tmp = () => {
+
+// }
+
+// const timeoutPromise = new Promise(function(resolve, reject){
+//     console.log('실행중...')
+//     console.log('실행중...')
+//     console.log('실행중...')
+//     setTimeout(function(){
+//         resolve({
+//             name : "김시원",
+//             age: 44
+//         })
+//     }, 2000)
+// })
+
+// timeoutPromise.then(function(res){
+//     console.log(res.name)
+//     return timeoutPromise;
+// })
+
+const getPromise = function (number) {
+
+    return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            // if (number > 5) {
+            //     resolve('성공');
+            // } else {
+            //     reject('실패');
+            // }
+            resolve('성공');
+        }, 2000)
+    })
+}
+
+// getPromise(3)
+//     .then(function(res){
+//         console.log(res)
+//     })
+//     .catch(function(err){
+//         console.log(err)
+//     })
+//     .finally(function(){
+//         console.log("끝")
+//     })
+
+Promise.all([
+    getPromise(1),
+    getPromise(5),
+    getPromise(7)
+    ])
+    .then(function (res) {
+        console.log(res)
+    })
